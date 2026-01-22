@@ -11,4 +11,20 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+api.interceptors.response.use(
+  (response) => response, 
+  (error) => {
+    if (error.response && error.response.status === 401) {
+  // Se for erro de login, não limpa nem redireciona, deixa o componente tratar
+  if (error.config.url.includes("/login")) {
+    return Promise.reject(error);
+  }
+
+  sessionStorage.removeItem("token");
+  sessionStorage.removeItem("user");
+  window.location.href = "/login"; 
+}
+  }
+);
+
 export default api;

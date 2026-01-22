@@ -38,7 +38,7 @@ export default function AdminList() {
 
   if (loading) {
     return (
-      <div className="p-6 flex items-center justify-center">
+      <div className="p-6 flex items-center justify-start">
         <div className="flex items-center gap-2 text-gray-600">
           <Loader2 className="w-5 h-5 animate-spin" />
           <span>Carregando admin's...</span>

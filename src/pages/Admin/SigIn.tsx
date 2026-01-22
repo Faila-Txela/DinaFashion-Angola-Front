@@ -3,19 +3,27 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from '../../services/lib/axios'
+import { adminService } from "../../services/api/userAdmins/userAdmin";
 import Input from "../../components/Input";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import logo from '../../assets/DinaFashion.png'
 
 
 function SigIn() {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
 
   const isEmailValid = (email: string) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(email);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const Register = async (e: React.FormEvent) => {
@@ -42,14 +50,12 @@ function SigIn() {
     setLoading(true); 
 
     try {
-      const { status } = await axios.post(
-        "api/register",
-        { nome, email, senha }
-      );
+      const { status } = await axios.post("/register",{ nome, email, senha });
+      //const { status } = await adminService.create({nome, email, senha,urlImage}) Porque não está dando certo?
 
       if (status === 200 || status === 201) {
-        toast.success("Login feito com sucesso! Faça login para continuar.");
-        console.log("Login realizado! Faça login para continuar.")
+        toast.success("Cadastro feito com sucesso! Faça login para continuar.");
+        console.log("Cadastro realizado! Faça login para continuar.")
         // 🔒 O cookie de sessão vem do backend
         setTimeout(() => navigate("/login"), 1500);
       } else {
@@ -79,9 +85,10 @@ function SigIn() {
           transition={{ duration: 0.4 }}
           className="bg-white p-8 rounded-2xl shadow-lg w-80 flex flex-col items-center"
         >
-          <h1 className="text-3xl font-semibold text-gray-800 mb-6">
-            Painel Register
-          </h1>
+        <div className="flex">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-6"> Register </h1>
+          <img className="w-8 h-8" src={logo} alt={logo} />
+        </div>
 
           <form
             onSubmit={Register}
@@ -131,17 +138,27 @@ function SigIn() {
               >
                 Senha
               </label>
-              <Input
-                id="password"
-                type="password"
-                title="password"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
-                placeholder="******"
-                addClassName="text-gray-700 focus:ring-1 focus:ring-[#ba5511]"
-                required
-              />
-            </div>
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    title="password"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                    placeholder="******"
+                    addClassName="text-gray-700 focus:ring-1 focus:ring-[#ba5511] pr-10" // Adicionado pr-10 para dar espaço ao ícone
+                    required
+                 />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute inset-y-0 right-0 pr-3 cursor-pointer flex items-center text-gray-400 hover:text-[#b95411] transition-colors"
+                  aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
+                >
+                 {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+                </button>
+                </div>
+                </div>
 
             <motion.button
               type="submit"

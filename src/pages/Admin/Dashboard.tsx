@@ -12,6 +12,8 @@ interface Interacao {
   id: string;
   cliente: { nome: string; email: string };
   produto: { name: string };
+  respondeu: boolean;
+  mensagem: string;
   dataInteration: string;
   status: StatusType;
 }
@@ -44,7 +46,7 @@ export default function Dashboard() {
   };
   if (loading) {
     return (
-      <div className="p-6 flex items-center justify-center">
+      <div className="p-6 flex items-center justify-start">
         <div className="flex items-center gap-2 text-gray-600">
           <Loader2 className="w-5 h-5 animate-spin" />
           <span>Carregando dashboard...</span>
@@ -92,6 +94,7 @@ export default function Dashboard() {
               <th className="p-2">Cliente</th>
               <th className="p-2">Produto</th>
               <th className="p-2">Status</th>
+              <th className="p-2">Mensagem</th>
               <th className="p-2">Data</th>
               <th className="p-2">Ações</th>
             </tr>
@@ -102,6 +105,7 @@ export default function Dashboard() {
                 <td className="p-2">{i.cliente.nome}</td>
                 <td className="p-2">{i.produto.name}</td>
                 <td className="p-2">{i.status}</td>
+                <td className="p-2">{i.mensagem || "-----------"}</td>
                 <td className="p-2">
                   {new Date(i.dataInteration).toLocaleString()}
                 </td>

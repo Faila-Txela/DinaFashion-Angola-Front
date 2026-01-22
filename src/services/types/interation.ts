@@ -6,4 +6,7 @@ export type Interation = {
   produto: { name: string };
   dataInteration: string;
   status: StatusType;
+  mensagemInicial?: string;
+  linkWhatsApp?: string;
+  respondeu?: boolean;
 };

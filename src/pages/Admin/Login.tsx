@@ -5,7 +5,8 @@ import { useAuth } from "../../context/authContext";
 import { toast } from "react-toastify";
 import axios from "../../services/lib/axios";
 import Input from "../../components/Input";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import { FaEye, FaEyeSlash } from "react-icons/fa";  
+import logo from '../../assets/DinaFashion.png'
 
 function Login() {
   const { login } = useAuth();
@@ -80,12 +81,13 @@ function Login() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
           className="bg-white p-8 rounded-2xl shadow-lg w-80 flex flex-col items-center"
-        >
-          <h1 className="text-3xl font-semibold text-gray-800 mb-6">
-            Painel Login
-          </h1>
+        >        
+        
+        <div className="flex">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-6"> Login </h1>
+          <img className="w-8 h-8" src={logo} alt={logo} />
+        </div>
           
-
           <form onSubmit={Enter} className="w-full flex flex-col gap-4">
             <div>
               <label

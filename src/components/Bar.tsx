@@ -1,17 +1,13 @@
-// Bar.jsx
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 function Bar() {
-    const [priceRange, setPriceRange] = useState(50); // Estado para o preço
+    const [priceRange, setPriceRange] = useState(50); 
 
     return (
         <AnimatePresence>
-            {/* Sidebar (use w-1/4 ou um valor fixo responsivo como w-64/w-80) */}
             <motion.nav
                 className='w-64 md:w-72 bg-white p-6 shadow-xl h-auto'
-                // Classes de layout para fixar/mover a sidebar podem depender de como você a quer exibir em mobile
-                // Mude a classe fixa para relativa/estática para ela ocupar espaço no layout principal
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.3 }}

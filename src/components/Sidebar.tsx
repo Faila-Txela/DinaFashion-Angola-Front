@@ -53,7 +53,7 @@ export default function Sidebar({ links, user }: SidebarProps) {
             animate={{ x: 0 }}
             exit={{ x: -250 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed md:relative top-0 left-0 bottom-0 w-64 bg-[#b95411]/90 backdrop-blur-md text-white p-6 z-40 
+            className="fixed md:relative top-0 left-0 bottom-0 w-70 bg-[#b95411]/90 backdrop-blur-md text-white p-6 z-40 
                        md:translate-x-0 shadow-2xl md:shadow-none rounded-r-3xl md:rounded-none border-r border-[#b95411]/40 flex flex-col justify-between"
           >
             {/* Perfil */}
@@ -111,7 +111,7 @@ export default function Sidebar({ links, user }: SidebarProps) {
   );
 }
 
-Sidebar.prototype = {
+Sidebar.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
