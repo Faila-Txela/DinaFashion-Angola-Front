@@ -26,17 +26,27 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    clientsService.getAll().then((res) => setClients(res.data));
-    productsService.getAll().then((res) => setProducts(res.data));
-    adminService.getAll().then((res) => setAdmins(res.data));
+  async function loadData() {
+    try {
+      const resClients = await clientsService.getAll();
+      const resProducts = await productsService.getAll();
+      const resAdmins = await adminService.getAll();
+      const resInterations = await interactionsService.getAll();
 
-    loadData().finally(() => setLoading(false));
+      setClients(Array.isArray(resClients) ? resClients : resClients.data || []);
+      setProducts(Array.isArray(resProducts) ? resProducts : resProducts.data || []);
+      setAdmins(Array.isArray(resAdmins) ? resAdmins : resAdmins.data || []);
+      setInteracoes(Array.isArray(resInterations) ? resInterations : resInterations.data || []);
 
-    async function loadData() {
-      const interationsData = await interactionsService.getAll();
-      setInteracoes(interationsData.data);
+    } catch (error) {
+      console.error("Erro ao carregar dados:", error);
+    } finally {
+      setLoading(false);
     }
-  }, []);
+  }
+
+  loadData();
+}, []);
 
   const handleStatusChange = async (id: string, novoStatus: StatusType) => {
     await axios.put(`/api/interacao/${id}`, { status: novoStatus });
