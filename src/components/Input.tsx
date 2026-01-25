@@ -4,7 +4,7 @@ type InputProps = {
   title?: string; 
   id: string;
   type: string; 
-  value?: string;
+  value?: string | number;
   addClassName: string;
   autoComplete?: string;
   required?: boolean;

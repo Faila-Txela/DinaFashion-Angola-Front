@@ -39,7 +39,7 @@ export default function Dashboard() {
   }, []);
 
   const handleStatusChange = async (id: string, novoStatus: StatusType) => {
-    await axios.put(`/api/interacao/:${id}`, { status: novoStatus });
+    await axios.put(`/api/interacao/${id}`, { status: novoStatus });
     setInteracoes((prev) =>
       prev.map((i) => (i.id === id ? { ...i, status: novoStatus } : i))
     );
@@ -95,7 +95,7 @@ export default function Dashboard() {
               <th className="p-2">Produto</th>
               <th className="p-2">Status</th>
               <th className="p-2">Mensagem</th>
-              <th className="p-2">Data</th>
+              <th className="p-2">Data Interação</th>
               <th className="p-2">Ações</th>
             </tr>
           </thead>
