@@ -1,11 +1,11 @@
-import Header from "./components/Header"
-import Carrousel from './components/carrousel'
+import Header from "./components/layout/Header"
+import Footer from "./components/layout/Footer"
+import Carrousel from './components/ui/carrousel'
 import DarkButton from "./components/Chat"
 import Categories from './pages/Categories'
-import Cards from "./components/Cards"
-import Testimonies from "./components/Testimonies"
+import Cards from "./components/ui/Cards"
+import Testimonials from "./components/Testimonials"
 import News from "./components/News"
-import Footer from "./components/Footer"
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <Categories />
         <Cards />
         <News />
-        <Testimonies />
+        <Testimonials />
        <DarkButton />
       <Footer />
 

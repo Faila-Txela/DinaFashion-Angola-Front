@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { productsService } from "../../services/api/products/products";
-import Button from "../../components/Button";
-import Input from "../../components/Input";
-import UploadArea from "../../components/upload-area";
+import Button from "../../components/ui/Button";
+import Input from "../../components/ui/Input";
+import UploadArea from "../../components/ui/upload-area";
 import { Loader2, MoreVertical, Trash2, Edit3, Eye } from "lucide-react"; 
-import Modal from "../../components/Modal";
+import Modal from "../../components/ui/Modal";
 import ProductDetailsModal from "../../components/ProductDetailsModal";
 import { toast } from "react-toastify"; 
 

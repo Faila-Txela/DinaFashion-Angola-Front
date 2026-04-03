@@ -16,7 +16,7 @@ import ProductsList from "./pages/Products/Products";
 
 import SigIn from "./pages/Admin/SigIn";
 import Login from "./pages/Admin/Login";
-import MainLayout from "./layout/MainLayout";
+import MainLayout from "./components/layout/MainLayout";
 import Dashboard from "./pages/Admin/Dashboard";
 import Products from "./pages/Admin/Products";
 import Clients from "./pages/Admin/Clients";
@@ -40,7 +40,7 @@ function App() {
       <Route path="/moda-masculina-angolana" element={<Masculine />} />
       <Route path="/moda-feminina-angolana" element={<Feminine />} />
       <Route path="/utensilios-de-cozinha" element={<Kitchen />} />
-      <Route path="/sobre-nossa-loja" element={<About />} />
+      <Route path="/sobre" element={<About />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/services" element={<Services />} />
       <Route path="/produtos" element={<ProductsList />} />

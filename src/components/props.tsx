@@ -1,4 +1,10 @@
-export default function Modal(props: any) {
+interface ModalProps {
+  user: string;
+  email: string;
+  children: React.ReactNode;
+}
+
+export default function Modal(props: ModalProps) {
     
     console.log(props);
 

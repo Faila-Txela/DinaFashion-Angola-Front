@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
+//import {products} from "data/products"  Após criar o arquivo central dos objetos, como usá-las nos outros componentes ou nas outras páginas
 
 const images = [
   { src: "https://cdn.pixabay.com/photo/2025/03/12/06/35/fashion-9463945_1280.jpg", title: "Estilo Urbano", description: "Roupas casuais com toque moderno." },
@@ -30,9 +31,9 @@ function News() {
     return () => clearInterval(interval);
   }, []);
 
-  const scrollTo = (dir: any) => {
+  const scrollTo = (direcao: "prev" | "next") => {
     setPosition((prev) => {
-      if (dir === "prev") {
+      if (direcao === "prev") {
         // Se estiver no primeiro, vai para o último
         return prev === 0 ? images.length - 1 : prev - 1;
       } else {

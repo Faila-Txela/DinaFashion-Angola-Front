@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "react-router-dom"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../components/layout/Header"
+import Footer from "../components/layout/Footer"
 import error from '../assets/404-error.png'
 import Chat from "../components/Chat"
 

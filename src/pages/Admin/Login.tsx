@@ -1,12 +1,15 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { toast } from "react-toastify";
 import axios from "../../services/lib/axios";
-import Input from "../../components/Input";
+import { isAxiosError } from 'axios';
+import Input from "../../components/ui/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";  
 import logo from '../../assets/DinaFashion.png'
+import Header from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
 
 function Login() {
   const { login } = useAuth();
@@ -60,11 +63,10 @@ function Login() {
       } else {
         toast.error("Erro ao fazer login.");
       }
-    } catch (error: any) {
-      console.error("❌ Erro no servidor ao tentar fazer login:", error);
+    } catch (error: unknown) {
       toast.error("Erro no servidor ao tentar fazer login.");
 
-      if (error.response?.status === 401) {
+      if (isAxiosError(error) && error.response?.status === 401) {
         toast.error("Credenciais inválidas. Tente novamente.");
       }
     } finally {
@@ -73,7 +75,8 @@ function Login() {
   };
 
   return (
-    <AnimatePresence>
+    <div>
+      <Header />
       <div className="flex justify-center items-center h-screen w-screen bg-gray-100">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -84,7 +87,7 @@ function Login() {
         >        
         
         <div className="flex">
-          <h1 className="text-2xl font-semibold text-gray-800 mb-6"> Login </h1>
+          <h1 className="text-2xl font-semibold text-gray-800 mb-6">Login</h1>
           <img className="w-8 h-8" src={logo} alt={logo} />
         </div>
           
@@ -123,7 +126,7 @@ function Login() {
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
                   placeholder="******"
-                  addClassName="text-gray-700 focus:ring-1 focus:ring-[#ba5511] pr-10" // Adicionado pr-10 para dar espaço ao ícone
+                  addClassName="text-gray-700 focus:ring-1 focus:ring-[#ba5511] pr-10"
                   required
                 />
                 <button
@@ -171,7 +174,8 @@ function Login() {
           </form>
         </motion.div>
       </div>
-    </AnimatePresence>
+      <Footer />
+    </div>
   );
 }
 

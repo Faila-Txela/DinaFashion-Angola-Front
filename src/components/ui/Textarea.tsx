@@ -4,7 +4,7 @@ type TextareaProps = {
     addClassName: string;
 }
 
-export default function({title, name, addClassName} :TextareaProps) {
+export default function Textarea({title, name, addClassName} :TextareaProps) {
   return (
     <div>
         <textarea 

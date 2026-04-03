@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaChevronDown } from "react-icons/fa6"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../components/layout/Header"
+import Footer from "../components/layout/Footer"
 import faq from "../assets/faq.png"
 import Chat from "../components/Chat"
 
@@ -29,9 +29,9 @@ const faqAnswers = [
 ]
 
 function Faq() {
-  const [activeIndex, setActiveIndex] = useState(null)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const toggleFAQ = (id: any) => {
+  const toggleFAQ = (id: number) => {
     setActiveIndex(activeIndex === id ? null : id)
   }
 

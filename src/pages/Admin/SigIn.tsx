@@ -1,12 +1,15 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from '../../services/lib/axios'
-import { adminService } from "../../services/api/userAdmins/userAdmin";
-import Input from "../../components/Input";
+import { isAxiosError } from 'axios';
+//import { adminService } from "../../services/api/userAdmins/userAdmin";
+import Input from "../../components/ui/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 import logo from '../../assets/DinaFashion.png'
+import Header from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
 
 
 function SigIn() {
@@ -31,19 +34,16 @@ function SigIn() {
 
     if (!nome || !email || !senha) {
       toast.error("Preencha todos os campos.");
-      console.error("Preencha todos os campos.")
       return;
     }
 
     if (!isEmailValid(email)) {
       toast.error("Email inválido. Tente novamente.");
-      console.error("Email inválido.")
       return;
     }
 
     if (senha.length < 6) {
       toast.error("A senha deve ter no mínimo 6 caracteres.");
-      console.error("A senha deve ter no mínimo 6 caracteres.")
       return;
     }
 
@@ -55,28 +55,25 @@ function SigIn() {
 
       if (status === 200 || status === 201) {
         toast.success("Cadastro feito com sucesso! Faça login para continuar.");
-        console.log("Cadastro realizado! Faça login para continuar.")
-        // 🔒 O cookie de sessão vem do backend
         setTimeout(() => navigate("/login"), 1500);
       } else {
         toast.error("Erro ao realizar cadastro.");
-        console.error("Erro ao realizar cadastro")
       }
-    } catch (error: any) {
-      console.error("❌ Erro no servidor ao tentar fazer login:", error);
+    } catch (error: unknown) {
       toast.error("Erro no servidor ao tentar fazer login.");
-      if (error.response?.status === 409) {
-        toast.error("Este email já está em uso.");
-      } else if (error.response?.data?.message) {
+      if (isAxiosError(error) && error.response?.status === 409) {
+      toast.error("Este email já está em uso.");
+      } else if (isAxiosError(error) && error.response?.data?.message) {
         toast.error(error.response.data.message);
       }
-    } finally {
-      setLoading(false);
-    }
+    } finally {
+     setLoading(false);
+    }
   };
 
   return (
-    <AnimatePresence>
+    <div>
+      <Header />
       <div className="flex justify-center items-center h-screen w-screen bg-gray-100">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -146,7 +143,7 @@ function SigIn() {
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                     placeholder="******"
-                    addClassName="text-gray-700 focus:ring-1 focus:ring-[#ba5511] pr-10" // Adicionado pr-10 para dar espaço ao ícone
+                    addClassName="text-gray-700 focus:ring-1 focus:ring-[#ba5511] pr-10"
                     required
                  />
                 <button
@@ -190,7 +187,8 @@ function SigIn() {
           </form>
         </motion.div>
       </div>
-    </AnimatePresence>
+      <Footer />
+    </div>
   );
 }
 

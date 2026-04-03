@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion"
 import { IoMdStar, IoIosStarOutline } from "react-icons/io";
 import { MdOutlineFormatQuote } from "react-icons/md";
 
-export default function() {
+export default function Testimonials() {
   return (
     <div className="min-h-screen flex-col max-md:flex gap-10 px-6 py-10">
       <AnimatePresence>

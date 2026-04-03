@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../components/layout/Header"
+import Footer from "../components/layout/Footer"
 import Chat from "../components/Chat"
 
 function Contacts() {
@@ -41,7 +41,7 @@ function Contacts() {
           </p>
 
           <div className="space-y-3">
-            <p>📧 dinaFashion2025@gmail.com</p>
+            <p>📧 albertinasauimbo17@gmail.com</p>
             <p>📞 +244 924 157 094</p>
             <p>📍 Luanda, Angola</p>
           </div>
@@ -62,7 +62,8 @@ function Contacts() {
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               placeholder=" "
-              className="peer w-full border-2 border-gray-400 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none"
+              required
+              className="peer w-full border-2 text-white border-gray-400 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none"
             />
             <label
               htmlFor="nome"
@@ -80,9 +81,10 @@ function Contacts() {
               type="email"
               id="email"
               value={email}
+              required
               onChange={(e) => setEmail(e.target.value)}
               placeholder=" "
-              className="peer w-full border-2 border-gray-400 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none"
+              className="peer w-full border-2 text-white border-gray-400 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none"
             />
             <label
               htmlFor="email"
@@ -101,8 +103,9 @@ function Contacts() {
               value={mensagem}
               onChange={(e) => setMensagem(e.target.value)}
               placeholder=" "
+              required
               rows={4}
-              className="peer w-full border-2 border-gray-400 text-white/80 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none resize-none"
+              className="peer w-full border-2 text-white border-gray-400 text-white/80 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none resize-none"
             />
             <label
               htmlFor="mensagem"
@@ -117,7 +120,7 @@ function Contacts() {
           {/* Botão */}
           <button
             type="submit"
-            className="w-full cursor-pointer py-3 bg-[#ba5511] hover:bg-[#ba5511] text-white font-semibold rounded-lg transition"
+            className="w-full cursor-pointer py-3 bg-[#ba5511] hover:bg-[#ba5511e4] text-white font-semibold rounded-lg transition"
           >
             Enviar
           </button>

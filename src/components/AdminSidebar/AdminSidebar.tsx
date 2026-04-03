@@ -1,6 +1,6 @@
 // src/components/AdminSidebar/AdminSidebar.tsx
 import { useEffect, useState } from "react";
-import Sidebar from "../Sidebar";
+import Sidebar from "../ui/Sidebar";
 import { adminService } from "../../services/api/userAdmins/userAdmin";
 import {
   LayoutDashboard,

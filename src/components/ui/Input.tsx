@@ -13,7 +13,7 @@ type InputProps = {
 }
 
 
-export default function({title, type, addClassName, onChange, placeholder, value} :InputProps) {
+export default function Input({title, type, addClassName, onChange, placeholder, value} :InputProps) {
   return (
     <div>
       <input 

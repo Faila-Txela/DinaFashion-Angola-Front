@@ -8,7 +8,7 @@ interface Button {
   children?: React.ReactNode;
 }
 
-export default function({ type, title, name, addClassName, onClick, disabled, children }: Button) {
+export default function Button({ type, title, name, addClassName, onClick, disabled, children }: Button) {
   return (
     <div>
         <button 

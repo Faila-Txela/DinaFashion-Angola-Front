@@ -1,10 +1,9 @@
-// src/components/Sidebar.tsx
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoChatbox } from "react-icons/io5";
 
 export default function Chat() {
-  const [modal, setModal] = useState<boolean | null>(null);
+  const [, setModal] = useState<boolean | null>(null);
 
   return (
     <aside className="fixed bottom-40 right-6 flex flex-col items-center gap-4 shadow-lg p-3 rounded-2xl transition-colors">

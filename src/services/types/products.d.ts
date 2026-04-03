@@ -1,11 +1,11 @@
-export type ImagemProduto = {
+export interface ImagemProduto {
   id: string;
   url: string;
   produtoId: string;
   createdAt: string;
 };
 
-export type Products = {
+export interface Products {
     id: string;
     name: string;
     description: string;

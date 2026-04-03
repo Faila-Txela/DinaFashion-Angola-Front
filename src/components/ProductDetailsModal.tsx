@@ -1,5 +1,5 @@
 import { Package, Layers, Tag, Calendar, X } from "lucide-react";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 interface Product {
   id: string;

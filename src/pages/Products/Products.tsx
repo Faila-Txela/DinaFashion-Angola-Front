@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdWhatsapp } from 'react-icons/md';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
 import Categories from '../Categories';
 
 // DADOS DE EXEMPLO
@@ -50,13 +50,13 @@ function ProductDetail() {
     );
     
     // Função para verificar se um tamanho específico está disponível para a cor atual
-    const isSizeAvailable = (size: any) => {
+    const isSizeAvailable = (size: string) => {
         return ProdutoDetalhado.variacoes.some(v => 
             v.cor === selectedColor && v.tamanho === size && v.stock > 0
         );
     };
 
-    const handleColorChange = (colorName: any) => {
+    const handleColorChange = (colorName: string) => {
         setSelectedColor(colorName);
 
         // Lógica de fallback de tamanho (
@@ -67,7 +67,7 @@ function ProductDetail() {
     };
 
     // Função para a galeria de miniaturas
-    const handleThumbnailClick = (img: any) => {
+    const handleThumbnailClick = (img: string) => {
         setMainImage(img);
     };
 
