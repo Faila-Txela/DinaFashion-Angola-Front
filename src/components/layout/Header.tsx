@@ -68,8 +68,10 @@ function Header() {
               <FaTimes />
             </button>
 
-
-            <Link to="/" className="hover:text-[#ba5511] font-semibold" onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link to="/moda-feminina-angolana" className="hover:text-[#ba5511] transition-colors" onClick={() => setMenuOpen(false)}>Mulheres</Link>
+            <Link to="/moda-masculina-angolana" className="hover:text-[#ba5511] transition-colors" onClick={() => setMenuOpen(false)}>Homens</Link>
+            <Link to="/" className="hover:text-[#ba5511] transition-colors" onClick={() => setMenuOpen(false)}>Crianças</Link>
+            <Link to="/" className="hover:text-[#ba5511] transition-colors" onClick={() => setMenuOpen(false)}>Acessórios</Link>
           </motion.nav>
         )}
       </AnimatePresence>

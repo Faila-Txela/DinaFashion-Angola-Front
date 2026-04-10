@@ -1,6 +1,6 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import Categories from "./Categories";
+import Categories from "../components/Categories";
 import Sidebar from "../components/Chat";
 
 function Services(){
@@ -8,8 +8,7 @@ function Services(){
     <div>
     <Header />
 
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 bg-white/70">
-      <h1 className="text-4xl font-bold mb-8">Nossos Serviços</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center mt-10 px-6 bg-white/70">
       <Categories />
     </div>
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaExpand, FaShareAlt } from 'react-icons/fa'; 
-import Categories from './Categories';
+import Categories from '../components/Categories';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import Bar from '../components/Bar';

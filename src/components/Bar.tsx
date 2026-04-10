@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 function Bar() {
@@ -58,7 +58,7 @@ function Bar() {
                             min="0"
                             max="100"
                             value={priceRange}
-                            onChange={(e: any) => setPriceRange(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setPriceRange(Number(e.target.value))}
                             className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer'
                         />
                         <p className='text-sm mt-2 text-gray-600'>

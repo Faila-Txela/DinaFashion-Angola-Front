@@ -7,8 +7,6 @@ export default function Chat() {
 
   return (
     <aside className="fixed bottom-40 right-6 flex flex-col items-center gap-4 shadow-lg p-3 rounded-2xl transition-colors">
-
-      {/* Dark button */}
       <button
         title="chat"
         type="button"

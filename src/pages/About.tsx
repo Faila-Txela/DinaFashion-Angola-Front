@@ -6,7 +6,7 @@ import Chat from '../components/Chat'
 function About() {
   
   // Tipagem explícita para as variantes
-  const sectionVariants: Variants = { // Adicione ': Variants' aqui
+  const sectionVariants: Variants = { 
     hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
@@ -19,7 +19,7 @@ function About() {
     },
   };
 
-  const itemVariants: Variants = { // E aqui também
+  const itemVariants: Variants = { 
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 }
   };
@@ -32,12 +32,12 @@ function About() {
 
         <motion.section 
           className='w-full max-w-7xl flex flex-col lg:flex-row items-center justify-center px-8 lg:px-16 gap-12'
-          variants={sectionVariants} // Aqui está usando sectionVariants
+          variants={sectionVariants} 
           initial="hidden"
           animate="visible"
         >
           <motion.div
-            variants={itemVariants} // E aqui itemVariants
+            variants={itemVariants} 
             className='flex flex-col max-w-lg gap-4 order-2 lg:order-1'
           > 
             <h1 className='text-4xl font-extrabold text-[#ba5511]'>Sobre Nossa Loja</h1>
@@ -54,7 +54,7 @@ function About() {
           </motion.div>
 
           <motion.div 
-            variants={itemVariants} // E novamente itemVariants
+            variants={itemVariants}
             className='w-full max-w-lg order-1 lg:order-2'
           >
             <img 

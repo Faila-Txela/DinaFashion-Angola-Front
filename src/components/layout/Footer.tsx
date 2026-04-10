@@ -42,7 +42,7 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Ajuda</h4>
             <ul className="space-y-3 text-sm text-white/80">
-              <li><a href="#" className="hover:text-white transition-colors">Perguntas Frequentes</a></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">Perguntas Frequentes</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Política de Troca</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Formas de Pagamento</a></li>
               <li><Link to="/contacts" className="hover:text-white transition-colors">Fale Conosco</Link></li>

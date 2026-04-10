@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion"
 import { IoMdStar, IoIosStarOutline } from "react-icons/io";
 import { MdOutlineFormatQuote } from "react-icons/md";
+import Subscription from "./ShopBanner";
 
 export default function Testimonials() {
   return (
@@ -42,6 +43,9 @@ export default function Testimonials() {
         </div>
         </div>
 
+        <div className="mt-20">
+          <Subscription />
+        </div>
       </AnimatePresence>
     </div>
   )

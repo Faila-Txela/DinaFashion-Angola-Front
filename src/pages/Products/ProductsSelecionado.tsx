@@ -3,7 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MdWhatsapp } from 'react-icons/md';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
-import Categories from '../Categories';
+import Categories from '../../components/Categories';
+//import { products } from '../../data/models';
+//import { productsService } from '../../services/api/products/products';
+//import { useParams } from 'react-router-dom';
 
 // DADOS DE EXEMPLO
 const ProdutoDetalhado = {
@@ -13,11 +16,10 @@ const ProdutoDetalhado = {
     preco: "25.000",
     emStock: true,
     imagens: [
-        "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", // Principal
+        "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg",
         "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg",
         "https://cdn.pixabay.com/photo/2017/08/07/16/06/dress-2605928_1280.jpg",
-    ],
-    whatsappLink: "https://wa.link/zqqw40", 
+    ], 
 
     // DADOS DE VARIAÇÕES E ESTOQUE
     variacoes: [
@@ -70,6 +72,8 @@ function ProductDetail() {
     const handleThumbnailClick = (img: string) => {
         setMainImage(img);
     };
+
+    const whatsappLink = `https://wa.me/924157094?text=Olá, tenho interesse no produto: ${ProdutoDetalhado.nome}`;
 
     return (
         <AnimatePresence>
@@ -195,7 +199,7 @@ function ProductDetail() {
                         
                         {/* Botão de WhatsApp */}
                         <a 
-                            href={ProdutoDetalhado.whatsappLink} 
+                            href={whatsappLink} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className='cursor-pointer bg-green-500 hover:bg-green-600 text-white font-bold p-4 rounded-lg flex items-center justify-center gap-3 transition duration-300 shadow-md hover:shadow-lg'

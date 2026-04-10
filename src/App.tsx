@@ -3,16 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Home from "./Home";
+import Home from "./pages/Home";
 import Masculine from "./pages/Masculine";
 import Feminine from "./pages/Feminine";
 import Kitchen from "./pages/Kitchen";
 import Faq from "./pages/Faq";
 import About from "./pages/About";
-import Services from "./pages/Services";
 import Contacts from "./pages/Contacts";
 import Terms from "./pages/Terms";
-import ProductsList from "./pages/Products/Products";
+import ProductsList from "./pages/Products/ProductsSelecionado";
 
 import SigIn from "./pages/Admin/SigIn";
 import Login from "./pages/Admin/Login";
@@ -24,6 +23,7 @@ import AdminList from "./pages/Admin/listAdmin";
 
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import Services from "./pages/Services";
 
 function App() {
   useEffect(() => {

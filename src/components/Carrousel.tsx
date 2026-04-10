@@ -2,22 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
-//import {products} from "data/products"  Após criar o arquivo central dos objetos, como usá-las nos outros componentes ou nas outras páginas
+import { carrousel } from "../data/models";
 
-const images = [
-  { src: "https://cdn.pixabay.com/photo/2025/03/12/06/35/fashion-9463945_1280.jpg", title: "Estilo Urbano", description: "Roupas casuais com toque moderno." },
-  { src: "https://cdn.pixabay.com/photo/2017/10/07/06/40/fashion-2825638_1280.jpg", title: "Minimalismo", description: "Peças neutras e sofisticadas." },
-  { src: "https://cdn.pixabay.com/photo/2025/03/12/09/51/fashion-9464609_1280.jpg", title: "Vintage Chic", description: "Moda retrô em alta." },
-  { src: "https://cdn.pixabay.com/photo/2017/05/17/04/00/golden-apple-2319787_1280.jpg", title: "Camisas Genuínas", description: "Tendência estilosa para os homens." },
-  { src: "https://cdn.pixabay.com/photo/2025/03/12/06/37/fashion-9463977_1280.jpg", title: "Peças de Galas", description: "Looks adoravéis para seus eventos de luxo." },
-  { src: "https://cdn.pixabay.com/photo/2019/12/25/17/42/fashion-4718992_1280.jpg", title: "Romântico", description: "Rendas, babados e tons suaves." },
-  { src: "https://cdn.pixabay.com/photo/2025/07/20/15/48/ai-generated-9724696_1280.jpg", title: "All Jeans", description: "O jean também pode ser sua marê" },
-  { src: "https://cdn.pixabay.com/photo/2017/09/19/21/35/fashion-2766725_1280.jpg", title: "Techwear", description: "Moda utilitária com atitude." },
-  { src: "https://cdn.pixabay.com/photo/2025/03/12/09/53/fashion-9464670_1280.jpg", title: "Estilo Casual", description: "Casual e leve para o dia a dia." },
-  { src: "https://cdn.pixabay.com/photo/2023/02/06/14/54/woman-7772187_1280.jpg", title: "Inverno", description: "Peças de inverno, com um toque moderno." },
-];
-
-function News() {
+function Carrousel() {
   const [position, setPosition] = useState(0);
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string; description: string } | null>(null);
   const containerRef = useRef(null);
@@ -26,7 +13,7 @@ function News() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPosition((prev) => (prev + 1) % images.length);
+      setPosition((prev) => (prev + 1) % carrousel.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -35,26 +22,26 @@ function News() {
     setPosition((prev) => {
       if (direcao === "prev") {
         // Se estiver no primeiro, vai para o último
-        return prev === 0 ? images.length - 1 : prev - 1;
+        return prev === 0 ? carrousel.length - 1 : prev - 1;
       } else {
         // Se estiver no último, vai para o primeiro
-        return prev === images.length - 1 ? 0 : prev + 1;
+        return prev === carrousel.length - 1 ? 0 : prev + 1;
       }
     });
   };
 
   // Função para a navegação dentro do modal
   const navigateModal = (direction: "prev" | "next") => {
-    const currentIndex = images.findIndex((img) => img.src === selectedImage?.src);
+    const currentIndex = carrousel.findIndex((img) => img.src === selectedImage?.src);
     const newIndex =
       direction === "prev"
         ? currentIndex === 0
-          ? images.length - 1
+          ? carrousel.length - 1
           : currentIndex - 1
-        : currentIndex === images.length - 1
+        : currentIndex === carrousel.length - 1
         ? 0
         : currentIndex + 1;
-    setSelectedImage(images[newIndex]);
+    setSelectedImage(carrousel[newIndex]);
   };
 
   // Função para fechar o modal ao clicar fora da área
@@ -81,7 +68,7 @@ function News() {
               transform: `translateX(-${(IMAGE_WIDTH + GAP) * position}px)`,
             }}
           >
-            {images.map((img, index) => (
+            {carrousel.map((img, index) => (
               <motion.div
                 key={index}
                 className="relative min-w-[250px] h-[350px] bg-gray-200 overflow-hidden shadow-lg flex-shrink-0 cursor-pointer group"
@@ -190,4 +177,4 @@ function News() {
   );
 }
 
-export default News;
+export default Carrousel;

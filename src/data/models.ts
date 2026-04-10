@@ -3,7 +3,7 @@ import type { ProductFilters } from "../services/global/ProductFilters";
 export const products: ProductFilters[] = []
 
 
-export const Carrousel = [
+export const carrousel = [
   { 
     id: 1,
     src: "https://cdn.pixabay.com/photo/2025/03/12/06/35/fashion-9463945_1280.jpg", 
@@ -67,3 +67,68 @@ export const Carrousel = [
     description: "Peças de inverno, com um toque moderno." 
   },
 ];
+
+export const categories = [
+
+  {
+    id: 1,
+    titulo: "Moda Masculina",
+    img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg",
+    url: "/moda-masculina-angolana"
+  },
+
+  {
+    id: 2,
+    titulo: "Moda Feminina",
+    img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg",
+    url: "/moda-feminina-angolana"
+  },
+
+  {
+    id: 3,
+    titulo: "Acessórios Luxuosos",
+    img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg",
+    url: "/acessorios"
+  },
+
+  {
+    id: 4,
+    titulo: "Calçados Luxuosos",
+    img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg",
+    url: "/calcados"
+  },
+
+  {
+    id: 5,
+    titulo: "Outros",
+    img: "https://cdn.pixabay.com/photo/2016/01/31/14/32/architecture-1171462_1280.jpg",
+    url: "/utensílios-de-cozinha"
+  }
+
+]
+
+export const faqAnswers = [
+  {
+    id: 1,
+    question: "O que é a DinaFashion ?",
+    answer: "DinaFashion é uma plataforma de e-commerce especializada em moda, oferecendo uma ampla variedade de roupas, acessórios e calçados para todas as idades e estilos.",
+  },
+
+  {
+    id: 2,
+    question: "Quais são as opções de pagamento disponíveis?",
+    answer: "De momento estamos aceitando apenas por transferência bancária ou via express.",
+  },
+
+  {
+    id: 3,
+    question: "Qual é a política de devolução?",
+    answer: "Nossa política de devolução permite que você devolva produtos em até 2 dias após a compra, desde que estejam em condições originais.",
+  },
+
+  {
+    id: 4,
+    question: "Como posso entrar em contato com o suporte ao cliente?",
+    answer: "Você pode entrar em contato com nosso suporte ao cliente através do formulário de contato na página 'Fale Conosco' ou pelo e-mail.",
+  },
+]

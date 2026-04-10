@@ -5,28 +5,7 @@ import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
 import faq from "../assets/faq.png"
 import Chat from "../components/Chat"
-
-const faqAnswers = [
-  {
-    question: "O que é a DinaFashion ?",
-    answer:
-      "DinaFashion é uma plataforma de e-commerce especializada em moda, oferecendo uma ampla variedade de roupas, acessórios e calçados para todas as idades e estilos.",
-  },
-  {
-    question: "Quais são as opções de pagamento disponíveis?",
-    answer: "De momento estamos aceitando apenas por transferência bancária ou via express.",
-  },
-  {
-    question: "Qual é a política de devolução?",
-    answer:
-      "Nossa política de devolução permite que você devolva produtos em até 2 dias após a compra, desde que estejam em condições originais.",
-  },
-  {
-    question: "Como posso entrar em contato com o suporte ao cliente?",
-    answer:
-      "Você pode entrar em contato com nosso suporte ao cliente através do formulário de contato na página 'Fale Conosco' ou pelo e-mail.",
-  },
-]
+import { faqAnswers } from "../data/models"
 
 function Faq() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -85,7 +64,7 @@ function Faq() {
           ))}
         </motion.div>
 
-        {/* Imagem (só aparece em telas médias ou maiores) */}
+        {/* Imagem */}
         <motion.div
           className="hidden md:flex items-center justify-center"
           initial={{ opacity: 0, y: 50 }}
