@@ -1,6 +1,7 @@
-// src/components/AdminSidebar/AdminSidebar.tsx
 import { useEffect, useState } from "react";
 import Sidebar from "../ui/Sidebar";
+import { useAuth } from "../../context/authContext";
+import { useNavigate } from "react-router";
 import { adminService } from "../../services/api/userAdmins/userAdmin";
 import {
   LayoutDashboard,
@@ -17,6 +18,8 @@ type Admin = {
 };
 
 export default function AdminSidebarContainer() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const [admins, setAdmins] = useState<Admin[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,6 +48,13 @@ useEffect(() => {
 
   fetchAdmins();
 }, []);
+
+const handleLogout = (e: React.MouseEvent) => {
+    e.preventDefault(); // Impede o redirecionamento imediato pelo href
+    logout();
+    sessionStorage.removeItem("currentAdmin");
+    navigate("/"); 
+  };
 
 
   if (loading) {
@@ -80,7 +90,12 @@ useEffect(() => {
     { label: "Produtos", href: "/painel/products", icon: <ShoppingCart /> },
     { label: "Clientes", href: "/painel/clients", icon: <User /> },
     { label: "Admin", href: "/painel/list-admin", icon: <User /> },
-    { label: "Sair", href: "/", icon: <LogOut /> },
+    { 
+      label: "Sair", 
+      href: "/", 
+      icon: <LogOut />, 
+      onClick: handleLogout
+    },
   ];
 
   return <Sidebar links={links} user={user} />;

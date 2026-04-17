@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, type JSX } from "react";
+import React, { useState, useEffect, useRef, type JSX } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 
 type SidebarProps = {
-  links: { label: string; href: string; icon: JSX.Element }[];
+  links: { label: string; href: string; icon: JSX.Element, onClick?: (e: React.MouseEvent) => void }[];
   user: { name: string; role: string; avatar: string };
 };
 
@@ -54,7 +54,7 @@ export default function Sidebar({ links, user }: SidebarProps) {
             exit={{ x: -250 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed md:relative top-0 left-0 bottom-0 w-70 bg-[#b95411]/90 backdrop-blur-md text-white p-6 z-40 
-                       md:translate-x-0 shadow-2xl md:shadow-none rounded-r-3xl md:rounded-none border-r border-[#b95411]/40 flex flex-col justify-between"
+            md:translate-x-0 shadow-2xl md:shadow-none rounded-r-3xl md:rounded-none border-r border-[#b95411]/40 flex flex-col justify-between"
           >
             {/* Perfil */}
             <div>
@@ -84,7 +84,11 @@ export default function Sidebar({ links, user }: SidebarProps) {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      onClick={() => handleLinkClick(link.href)}
+                      // Usamos este aqui assim, para que ele saiba quando se tratar de apenas um href comum e da função logOut.
+                      onClick={(e) => {
+                        if(link.onClick) link.onClick(e)
+                          handleLinkClick(link.href)
+                      }}
                       className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-200
                         ${
                           active === link.href

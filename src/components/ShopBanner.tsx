@@ -1,15 +1,23 @@
-import { Link } from "react-router"
+import { useNavigate } from "react-router"
 import { ShoppingCart } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
+import Button from "./ui/Button"
 
 export default function ShopBanner() {
+
+  const navigate = useNavigate()
+
+  const ProductsLink = () =>{
+    navigate("/moda-feminina-angolana")
+  }
+
   return (
     <AnimatePresence>
 
       <div className="flex justify-center items-center max-w-fit  mx-auto bg-white/80 p-10 rounded-lg border border-dashed border-[#782143]">
 
         <div className="flex items-center gap-6">
-          <div className="flex items-center flex-col gap-2">
+          <div className="flex items-center flex-col gap-4">
             <motion.h4
             initial= {{y: 20}} 
             animate={{
@@ -20,14 +28,20 @@ export default function ShopBanner() {
                 Comece já as suas compras!
             </motion.h4>
 
-            <motion.p
+            <motion.div
             initial= {{y: 20}} 
             animate={{
               y: 0,
               transition: {duration: .5}}} 
             >
-              <Link aria-label="call to action" to="/moda-feminina-angolana" className="font-medium underline -underline-offset-[14px] text-[#782143] text-xl">Produtos</Link>
-            </motion.p>
+              <Button 
+               name="Produtos"
+               type="button"
+               title="ProductsLink"
+               onClick={ProductsLink} 
+               addClassName="font-medium bg-black/80 py-2 px-16 rounded-lg cursor-pointer text-white hover:bg-black/70 transition-all duration-300 text-xl"
+               />
+            </motion.div>
           </div>
 
           <motion.div

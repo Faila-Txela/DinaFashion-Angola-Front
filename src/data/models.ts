@@ -111,19 +111,19 @@ export const faqAnswers = [
   {
     id: 1,
     question: "O que é a DinaFashion ?",
-    answer: "DinaFashion é uma plataforma de e-commerce especializada em moda, oferecendo uma ampla variedade de roupas, acessórios e calçados para todas as idades e estilos.",
+    answer: "DinaFashion é uma plataforma de e-commerce especializada em moda, oferecendo uma ampla variedade de produtos para todos os estilos.",
   },
 
   {
     id: 2,
     question: "Quais são as opções de pagamento disponíveis?",
-    answer: "De momento estamos aceitando apenas por transferência bancária ou via express.",
+    answer: "Não possuímos um sistema de pagamento online, ainda. No entanto caso goste de um produto, clique no botão de 'Pedir no WhatsApp', e por lá poderá escolher o método de pagamento, que mais lhe apraze.",
   },
 
   {
     id: 3,
     question: "Qual é a política de devolução?",
-    answer: "Nossa política de devolução permite que você devolva produtos em até 2 dias após a compra, desde que estejam em condições originais.",
+    answer: "Nossa política de devolução permite que você devolva produtos em até 1 dia após a compra, desde que estejam em condições originais.",
   },
 
   {

@@ -33,7 +33,7 @@ export default function Cards() {
 
   return (
     <AnimatePresence>
-      <h1 className="font-semibold text-3xl mt-5 mb-16 text-center">Serviços Prestados</h1>
+      <h1 className="font-semibold text-3xl mt-5 mb-16 text-center">O que o Cliente recebe</h1>
 
       <motion.div className="flex max-md:flex-col gap-6 items-center justify-center">
         {cards.map((card, index) => (

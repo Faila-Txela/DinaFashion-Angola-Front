@@ -77,13 +77,13 @@ function Login() {
   return (
     <div>
       <Header />
-      <div className="flex justify-center items-center h-screen w-screen bg-gray-100">
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
-          className="bg-white p-8 rounded-2xl shadow-lg w-80 flex flex-col items-center"
+          className="bg-white p-8 rounded-2xl shadow-lg w-90 flex flex-col items-center"
         >        
         
         <div className="flex">
