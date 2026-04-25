@@ -1,7 +1,30 @@
-import type { ProductFilters } from "../services/global/ProductFilters";
+export const produtos = [
 
-export const products: ProductFilters[] = []
+    { id: 1, titulo: "Vestido Floral Luxo", descricao: "Um vestido leve e elegante para a estação.", preco: "25.000", img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", url: "/produtos" },
 
+    { id: 2, titulo: "Terno Casual Slim", descricao: "Perfeito para eventos formais e semi-formais.", preco: "55.000", img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg", url: "/produto/2" },
+
+    { id: 3, titulo: "Brincos de Diamante", descricao: "Acabamento em ouro branco 18k.", preco: "120.000", img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg", url: "/produto/3" },
+
+    { id: 4, titulo: "Sapato Scarpin Alto", descricao: "Conforto e elegância em cada passo.", preco: "32.000", img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg", url: "/produto/4" },
+
+    { id: 5, titulo: "Vestido Floral Luxo", descricao: "Um vestido leve e elegante para a estação.", preco: "25.000", img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", url: "/produto/1" },
+
+    { id: 6, titulo: "Terno Casual Slim", descricao: "Perfeito para eventos formais e semi-formais.", preco: "55.000", img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg", url: "/produto/2" },
+
+    { id: 7, titulo: "Brincos de Diamante", descricao: "Acabamento em ouro branco 18k.", preco: "120.000", img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg", url: "/produto/3" },
+
+    { id: 8, titulo: "Sapato Scarpin Alto", descricao: "Conforto e elegância em cada passo.", preco: "32.000", img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg", url: "/produto/4" },
+
+    { id: 9, titulo: "Vestido Floral Luxo", descricao: "Um vestido leve e elegante para a estação.", preco: "25.000", img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", url: "/produto/1" },
+
+    { id: 10, titulo: "Terno Casual Slim", descricao: "Perfeito para eventos formais e semi-formais.", preco: "55.000", img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg", url: "/produto/2" },
+
+    { id: 11, titulo: "Brincos de Diamante", descricao: "Acabamento em ouro branco 18k.", preco: "120.000", img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg", url: "/produto/3" },
+
+    { id: 12, titulo: "Sapato Scarpin Alto", descricao: "Conforto e elegância em cada passo.", preco: "32.000", img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg", url: "/produto/4" },
+
+];
 
 export const carrousel = [
   { 

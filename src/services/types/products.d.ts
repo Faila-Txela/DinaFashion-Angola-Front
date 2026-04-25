@@ -10,7 +10,7 @@ export interface Products {
     name: string;
     description: string;
     price: number;
-    images: ImagemProduto[]
+    imagens: ImagemProduto[]
     inStock: number;
     active: boolean;
     categoria: string;

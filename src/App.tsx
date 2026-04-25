@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Terms from "./pages/Terms";
 import ProductsList from "./pages/Products/ProductsSelecionado";
+import ProductDetail from "./pages/Products/ProductsSelecionado";
 
 import SigIn from "./pages/Admin/SigIn";
 import Login from "./pages/Admin/Login";
@@ -48,6 +49,9 @@ function App() {
       <Route path="/termos-de-uso" element={<Terms />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sig-in" element={<SigIn />} />
+
+      {/* Rota dos parâmetros para os produtos, ao clicar em um produto, ele vai para os detalhes do mesmo */}
+      <Route path="/produto/:id" element={<ProductDetail />} />
 
       {/* Rotas protegidas (Dashboard) */}
       <Route

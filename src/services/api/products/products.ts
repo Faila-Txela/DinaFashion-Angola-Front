@@ -9,11 +9,15 @@ class ProductsService{
         });
         return data;
     }
-    
 
     async getAll(){
      const { data } = await axios.get("/products");
      return data;
+    }
+
+    async getById(id: string){
+        const { data } = await axios.get(`/products/${id}`)
+        return data
     }
 
 

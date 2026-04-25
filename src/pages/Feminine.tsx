@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaExpand, FaShareAlt } from 'react-icons/fa'; 
@@ -5,39 +6,33 @@ import Categories from '../components/Categories';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import Bar from '../components/Bar';
-
-
-// DADOS DE EXEMPLO
-const produtos = [
-
-    { id: 1, titulo: "Vestido Floral Luxo", descricao: "Um vestido leve e elegante para a estação.", preco: "25.000", img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", url: "/produtos" },
-
-    { id: 2, titulo: "Terno Casual Slim", descricao: "Perfeito para eventos formais e semi-formais.", preco: "55.000", img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg", url: "/produto/2" },
-
-    { id: 3, titulo: "Brincos de Diamante", descricao: "Acabamento em ouro branco 18k.", preco: "120.000", img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg", url: "/produto/3" },
-
-    { id: 4, titulo: "Sapato Scarpin Alto", descricao: "Conforto e elegância em cada passo.", preco: "32.000", img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg", url: "/produto/4" },
-
-    { id: 5, titulo: "Vestido Floral Luxo", descricao: "Um vestido leve e elegante para a estação.", preco: "25.000", img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", url: "/produto/1" },
-
-    { id: 6, titulo: "Terno Casual Slim", descricao: "Perfeito para eventos formais e semi-formais.", preco: "55.000", img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg", url: "/produto/2" },
-
-    { id: 7, titulo: "Brincos de Diamante", descricao: "Acabamento em ouro branco 18k.", preco: "120.000", img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg", url: "/produto/3" },
-
-    { id: 8, titulo: "Sapato Scarpin Alto", descricao: "Conforto e elegância em cada passo.", preco: "32.000", img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg", url: "/produto/4" },
-
-    { id: 9, titulo: "Vestido Floral Luxo", descricao: "Um vestido leve e elegante para a estação.", preco: "25.000", img: "https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_1280.jpg", url: "/produto/1" },
-
-    { id: 10, titulo: "Terno Casual Slim", descricao: "Perfeito para eventos formais e semi-formais.", preco: "55.000", img: "https://cdn.pixabay.com/photo/2017/01/14/10/03/fashion-1979136_1280.jpg", url: "/produto/2" },
-
-    { id: 11, titulo: "Brincos de Diamante", descricao: "Acabamento em ouro branco 18k.", preco: "120.000", img: "https://cdn.pixabay.com/photo/2023/04/26/08/38/jewelry-7951905_1280.jpg", url: "/produto/3" },
-
-    { id: 12, titulo: "Sapato Scarpin Alto", descricao: "Conforto e elegância em cada passo.", preco: "32.000", img: "https://cdn.pixabay.com/photo/2023/11/15/13/52/shoe-8390118_1280.jpg", url: "/produto/4" },
-
-];
-
+import { toast } from "react-toastify";
+import type { Products } from "../services/types/products";
+import { productsService } from "../services/api/products/products";
 
 function Feminine() {
+    const [products, setProducts] = useState<Products[]>([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    // Função para carregar os produtos
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try{
+            setIsLoading(true)
+            const data = await productsService.getAll()
+            setProducts(data)
+        }
+
+        catch(error){
+            console.error("Erro ao carregar produtos", error)
+          toast.error("Não foi possível carregar os produtos")
+        }
+        finally{
+            setIsLoading(false)
+        }
+      }
+      fetchProducts()
+    }, [])
 
     return (
 
@@ -62,12 +57,11 @@ function Feminine() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
                     > 
-
-                        {produtos.map((produto) => (
-
+                    {isLoading && <p>Carregando produtos...</p>} 
+                        {!isLoading && products.map((produto, index) => (
                             <Link 
-                                to={produto.url} 
-                                key={produto.id} 
+                                to={`/produto/${produto.id}`} 
+                                key={`${produto.id}-${index}`} 
                                 className="relative group w-full overflow-hidden bg-gray-50 rounded-lg hover:shadow-xl transition-shadow duration-300"
                             >
 
@@ -75,8 +69,9 @@ function Feminine() {
                                 <div className='relative overflow-hidden h-72 w-full'>
 
                                     <motion.img
-                                        src={produto.img}
-                                        alt={produto.titulo}
+                                         // Acessando as imagens, mesmo o type das imagens estar em outra tipagem
+                                        src={produto.imagens && produto.imagens.length > 0 ? produto.imagens[0].url : 'caminho/para/imagem-placeholder.jpg'}
+                                        alt={produto.name}
                                         className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
                                     />
 
@@ -104,9 +99,9 @@ function Feminine() {
                                 {/* Informações do Produto (Abaixo da Imagem) */}
                                 <div className='p-3 flex flex-col'>
 
-                                    <h3 className='font-semibold text-gray-900 truncate'>{produto.titulo}</h3>
-                                    <p className='text-sm text-gray-600 truncate'>{produto.descricao}</p>
-                                    <p className='mt-2 font-bold text-lg text-[#ba5511]'>{produto.preco} kz</p>
+                                    <h3 className='font-semibold text-gray-900 truncate'>{produto.name}</h3>
+                                    <p className='text-sm text-gray-600 truncate'>{produto.description}</p>
+                                    <p className='mt-2 font-bold text-lg text-[#ba5511]'>{produto.price.toLocaleString()} kz</p>
 
                                 </div>
 
