@@ -30,8 +30,8 @@ class ProductsService{
 
     
     async delete(id: string){
-        const { data } = await axios.delete(`/products/${id}`);
-        return data;
+        const response = await axios.delete(`/products/${id}`);
+        return response;
     }
 
 }

@@ -55,9 +55,9 @@ function ProductDetail() {
             <div className='flex md:flex-col gap-2 overflow-x-auto md:w-20 w-full'>
               {product.imagens.map((img, index) => (
                 <img
-                  title='imagem-detalhada'
+                  alt={product.name}
                   key={`${img.id}-${index}`}
-                  src={img.url}
+                  src={mainImage}
                   className={`w-16 h-16 md:w-20 md:h-20 object-cover cursor-pointer border ${mainImage === img.url ? 'border-black' : 'border-gray-200'}`}
                   onClick={() => setMainImage(img.url)}
                 />
@@ -75,9 +75,14 @@ function ProductDetail() {
             
             <div className='mb-8'>
               <h3 className='font-semibold text-lg'>Disponibilidade:</h3>
-              <span className={`px-3 py-1 rounded-full text-sm font-bold ${product.inStock > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                {product.inStock > 0 ? `✅ ${product.inStock} em stock` : '❌ Esgotado'}
-              </span>
+              <div className='flex items-center gap-4'>
+                <span className={`px-3 py-1 rounded-full text-sm font-bold ${product.inStock > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                 {product.inStock > 0 ? `✅ ${product.inStock} em stock` : '❌ Esgotado'}
+                </span>
+                <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase ${product.active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {product.active ? "Ativo" : "Inativo"}
+                </span>
+              </div>
             </div>
 
             <h2 className='font-semibold text-xl border-b pb-2 mb-3'>Descrição</h2>

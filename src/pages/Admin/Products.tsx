@@ -72,13 +72,17 @@ function Products() {
     }
     try {
       const formData = new FormData();
+      const tagsArray = form.tags
+      ? form.tags.split(',').map(tag => tag.trim()).filter(tag => tag !== "")
+      : [];
+
       const info = {
         name: form.name,
         description: form.description,
         price: Number(form.price),
         inStock: Number(form.inStock),
         categoria: form.categoria,
-        tags: form.tags, // Envie como string (não array), pois o backend espera string
+        tags: tagsArray, 
         active: true
       };
       formData.append("info", JSON.stringify(info));
