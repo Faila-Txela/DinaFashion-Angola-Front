@@ -87,9 +87,10 @@ function Products() {
       };
       formData.append("info", JSON.stringify(info));
       if (selectedImages.length > 0) {
-        formData.append("file", selectedImages[0]);
+        selectedImages.forEach((image) => { // está servindo para adicionar todas as imagens selecionadas
+          formData.append("file", image); // adiciona cada imagem ao formData
+        })
       }
-      console.log("Criando produto:", info);
       const newProduct = await productsService.create(formData);
       setProducts(prev => [...prev, newProduct]); // Atualiza lista local
       setIsModalOpen(false);
@@ -121,9 +122,10 @@ function Products() {
       };
       formData.append("info", JSON.stringify(info));
       if (selectedImages.length > 0) {
-        formData.append("file", selectedImages[0]);
+        selectedImages.forEach((image) => { // está servindo para adicionar todas as imagens selecionadas
+          formData.append("file", image); // adiciona cada imagem ao formData
+        })
       }
-      console.log("Atualizando produto:", info);
       const updatedProduct = await productsService.update(selectedProductForEdit.id, formData);
       setProducts(prev => prev.map(p => p.id === selectedProductForEdit.id ? updatedProduct : p)); 
       setIsModalOpen(false);
@@ -166,7 +168,6 @@ function Products() {
   const handleDelete = async (id: string) => {
     if (window.confirm("Deseja realmente eliminar este produto?")) {
       try {
-        console.log("Deletando produto ID:", id);
         await productsService.delete(id);
         setProducts(prevProducts => prevProducts.filter(product => product.id !== id)); // Remove da lista local
         toast.success("Produto eliminado com sucesso!");

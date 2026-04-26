@@ -105,7 +105,7 @@ function Contacts() {
               placeholder=" "
               required
               rows={4}
-              className="peer w-full border-2 text-white border-gray-400 text-white/80 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none resize-none"
+              className="peer w-full border-2 border-gray-400 text-white/80 rounded-lg px-3 pt-5 pb-2 bg-transparent focus:border-[#ba5511] focus:outline-none resize-none"
             />
             <label
               htmlFor="mensagem"
