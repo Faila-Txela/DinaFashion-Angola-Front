@@ -106,7 +106,7 @@ export default function Sidebar({ links, user }: SidebarProps) {
 
             {/* Rodapé */}
             <footer className="text-sm text-gray-200 opacity-80 mt-10 text-center border-t border-[#5e2b3e]/40 pt-4">
-              © 2025 Green World. Todos os direitos reservados.
+              © 2026 DinaFashion. Todos os direitos reservados.
             </footer>
           </motion.nav>
         )}

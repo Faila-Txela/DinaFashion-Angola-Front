@@ -45,7 +45,7 @@ function ProductDetail() {
   }, [fetchProduct]);
 
   const whatsappLink = product 
-    ? `https://wa.me/924157094?text=Olá, tenho interesse no produto: ${product.name}` 
+    ? `https://wa.me/946121098?text=Olá DinaFashion! Gostaria de fazer este pedido: ${product.name} Total: ${new Intl.NumberFormat("pt-AO").format(product.price)} AOA` 
     : "#";
 
   return (

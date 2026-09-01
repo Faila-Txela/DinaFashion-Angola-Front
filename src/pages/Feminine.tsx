@@ -88,7 +88,7 @@ function Feminine() {
                             <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
                                 <MessageSquareWarningIcon className="w-12 h-12 text-orange-400 mb-4" />
                                 <h2 className="text-xl font-semibold text-gray-800">Nenhum produto encontrado</h2>
-                                <p className="text-gray-500">Parece que não temos produtos nesta categoria no momento.</p>
+                                <p className="text-gray-500">Nenhum produto nesta categoria no momento.</p>
                             </div>
                         ) : (
                             // ESTADO 4: SUCESSO E COM DADOS

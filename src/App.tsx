@@ -6,13 +6,12 @@ import "aos/dist/aos.css";
 import Home from "./pages/Home";
 import Masculine from "./pages/Masculine";
 import Feminine from "./pages/Feminine";
-import Kitchen from "./pages/Kitchen";
 import Faq from "./pages/Faq";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Terms from "./pages/Terms";
-import ProductsList from "./pages/Products/ProductsSelecionado";
-import ProductDetail from "./pages/Products/ProductsSelecionado";
+import ProductsList from "./pages/Products/SelectedProducts";
+import ProductDetail from "./pages/Products/SelectedProducts";
 
 import SigIn from "./pages/Admin/SigIn";
 import Login from "./pages/Admin/Login";
@@ -40,7 +39,6 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/moda-masculina-angolana" element={<Masculine />} />
       <Route path="/moda-feminina-angolana" element={<Feminine />} />
-      <Route path="/utensilios-de-cozinha" element={<Kitchen />} />
       <Route path="/sobre" element={<About />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/services" element={<Services />} />
